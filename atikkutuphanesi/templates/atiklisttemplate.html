@@ -1,0 +1,328 @@
+{% extends "layout.html" %}
+{% block body %}
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'atiklisttemplate.css' %}"> -->
+<style>
+     i {
+          margin: 0;
+     }
+</style>
+<div class="container mt-4">
+     <div class="row title">
+          <h3 class="display-5 text-center text-uppercase">{{data.mainname}}</h3>
+     </div>
+     <div class="row m-3">
+          <h2 class="h2">{{data.mainname}} nedir?</h2>
+          <p class="fs-5">{{data.whatIsIt}}</p>
+
+     </div>
+     <div class="row m-3">
+          <h2 class="h2">{{data.mainname}} neden önemlidir?</h2>
+          <p class="fs-5">{{data.whyİmportant}}</p>
+
+     </div>
+     <div class="row m-3">
+          <h2 class="h2">{{data.mainname}} nerelerde oluşur?</h2>
+          <p class="fs-5">{{data.whereAccours}}</p>
+
+     </div>
+     <div class="row m-3">
+          <h2 class="h2">{{data.mainname}} diğer atıklardan nasıl ayrılır?</h2>
+          <p class="fs-5">{{data.howUnderstand}}</p>
+
+     </div>
+     <div class="row-m3 mt-5">
+          <h5 style="color: red;" class="h4 mt-5">Detaylı bilgi için ilgili atık kodlarını inceleyebilirsiniz </h5>
+     </div>
+     <div class="row mt-5">
+          <select class="form-select dropselect" name="" id="atik">
+               {% for i in firstStep %}
+
+               <option value="{{i.selfMark}}">{{i.content}}</option>
+
+
+
+               {% endfor %}
+          </select>
+          <select class="form-select dropselect" name="" id="atik2">
+          </select>
+          <ul id="contentUl">
+
+
+          </ul>
+     </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+     const bob = () => {
+          var list = document.querySelector("#contentUl");
+          var secondd = document.querySelector("#atik2");
+          var firstt = document.querySelector("#atik");
+          var opened = [{% for i in secondStep %}
+     "{{i.upperMark}}", {% endfor %}];
+     var opened2 = [{% for i in thirdStep %}
+     "{{i.upperMark}}", {% endfor %}];
+     var openedd = [{% for s in secondStep %}
+     "{{s.content}}",
+
+          {% endfor %}]
+     var openeddd = [{% for s in secondStep %}
+     "{{s.selfMark}}",
+
+          {% endfor %}]
+     var openedd2 = [{% for s in thirdStep %}
+     "{{s.content}}",
+
+          {% endfor %}]
+     var hrefs = [{% for i in thirdStep %}
+     "{{i.href}}",
+
+          {% endfor %}]
+
+
+
+
+
+
+     opened.forEach((item, index) => {
+
+
+          if (item == firstt.value) {
+
+
+               var option = document.createElement("option");
+               option.innerHTML = openedd[index];
+               option.value = openeddd[index];
+
+               secondd.appendChild(option);
+
+
+
+          }
+
+     })
+     opened2.forEach((item, index) => {
+          if (item == secondd.value) {
+               var a = document.createElement('a');
+               var link = document.createTextNode(openedd2[index]);
+               a.appendChild(link);
+               a.href = hrefs[index];
+               a.className = "theA"
+
+
+               var li = document.createElement("li");
+               li.appendChild(a)
+
+               console.log("worked-worked");
+               list.appendChild(li);
+               //a'ları düzgün yap
+
+          }
+
+
+
+     })
+
+
+                         };
+     bob();
+
+
+</script>
+
+
+
+
+<script>
+
+     var first = document.querySelector("#atik");
+     var second = document.querySelector("#atik2");
+     var datas = [{% for m in secondStep %}
+     "{{m.upperMark}}",
+
+          {% endfor %}]
+     var datasContent = [{% for m in secondStep %}
+     "{{m.content}}",
+
+          {% endfor %}]
+     var datasSelfmark = [{% for m in secondStep %}
+     "{{m.selfMark}}",
+
+          {% endfor %}]
+     var hrefs = [{% for i in thirdStep %}
+     "{{i.href}}",
+
+          {% endfor %}]
+
+
+     // 
+     var contentUl = document.querySelector("#contentUl");
+     var datas2 = [{% for m in thirdStep %}
+     "{{m.upperMark}}",
+
+          {% endfor %}]
+     var datasContent2 = [{% for m in thirdStep %}
+     "{{m.content}}",
+
+          {% endfor %}]
+
+
+     first.addEventListener("change", (e) => {
+          console.log("geeeel")
+          //let selText = $("#atik option:selected").value;
+          second.innerHTML = "";
+          contentUl.innerHTML = "";
+
+
+
+          datas.forEach((item, index) => {
+
+
+               if (item == first.value) {
+
+                    option = document.createElement("option");
+                    option.innerHTML = datasContent[index];
+                    option.value = datasSelfmark[index];
+                    second.appendChild(option);
+                    console.log("worked")
+                    //burda kaldım
+
+               }
+
+
+
+
+
+
+          })
+          datas2.forEach((item, index) => {
+
+
+               if (item == second.value) {
+                    var a = document.createElement('a');
+                    var link = document.createTextNode(datasContent2[index]);
+                    a.appendChild(link);
+                    a.href = hrefs[index];
+                    a.className = "theA"
+
+
+                    var li = document.createElement("li");
+                    li.appendChild(a)
+
+                    contentUl.appendChild(li);
+
+
+
+               }
+
+
+
+
+
+
+          })
+
+
+
+     })
+
+</script>
+
+
+
+<div>
+
+
+     <script>
+
+
+          var second1 = document.querySelector("#atik2");
+          var contentUl = document.querySelector("#contentUl");
+          var datas2 = [{% for m in thirdStep %}
+          "{{m.upperMark}}",
+
+               {% endfor %}]
+          var datasContent2 = [{% for m in thirdStep %}
+          "{{m.content}}",
+
+               {% endfor %}]
+          var hrefs = [{% for i in thirdStep %}
+          "{{i.href}}",
+
+               {% endfor %}]
+
+          second1.addEventListener("change", (e) => {
+               console.log("buraya ne oluyro")
+               //let selText = $("#atik option:selected").value;
+               contentUl.innerHTML = "";
+
+
+
+               datas2.forEach((item, index) => {
+
+
+                    if (item == second1.value) {
+
+                         var a = document.createElement('a');
+                         var link = document.createTextNode(datasContent2[index]);
+                         a.appendChild(link);
+                         a.href = hrefs[index];
+                         a.className = "theA"
+
+
+                         var li = document.createElement("li");
+                         li.appendChild(a)
+                              ;
+                         contentUl.appendChild(li);
+
+                         //burda kaldım
+
+                    }
+
+
+
+
+
+
+               })
+
+
+
+          })
+
+     </script>
+
+</div>
+<script>
+
+</script>
+
+
+
+
+
+</div>
+</div>
+<script src="{% static 'js/atiklisttemplate.js' %}"></script>
+
+
+{% endblock body %}

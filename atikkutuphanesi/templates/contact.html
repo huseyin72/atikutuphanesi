@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+{% load static %}
+        {% comment %} <link rel="stylesheet" href="{% static 'contact.css' %}"> {% endcomment %}
+        <style>
+             @media (max-width: 850px){
+                    #name,#email,#message{
+                         width: 70vw;
+                    }
+}
+        </style>
+
+
+     
+     <div class="container mb-5 " style="min-height:70vh;">
+          <p  class="h1 m-3 my-5">Bize ulaşın</p>
+
+          <form class="row align-items-center" id="form" method="post" >
+               {% csrf_token %}
+               {% for msg in messages  %}
+               <div style="background-color:green; color:white; border-radius: 0.7rem;padding: 0.6rem; opacity: 0.7;">{{msg}}</div>
+               
+               {% endfor %}
+               <div class="container">
+                    <div class="mb-3">
+                         <label for="exampleFormControlInput2" class="form-label"><p class="h4">İsminiz</p></label>
+                         <input name="name" type="name" class="form-control" id="exampleFormControlInput2" >
+                         </div>
+                    <div class="mb-3">
+                         <label for="exampleFormControlInput1" class="form-label"><p class="h4">Email adresiniz</p></label>
+                         <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                         </div>
+                         <div class="mb-3">
+                         <label for="exampleFormControlTextarea1" class="form-label"><p class="h4">Mesajınız</p></label>
+                         <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                         </div>
+                         <button type="submit" class="btn btn-success">Gönder</button> 
+     
+               </div>
+              
+     
+          </form>
+     </div>
+   
+
+     
+
+{% endblock body %}

@@ -1,0 +1,209 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'atikcode.css' %}"> -->
+        <style>
+            .custom{
+                height: 6rem !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                opacity: 0.9 !important;
+            }
+            .custom-image{
+                height:5rem !important ;
+            }
+            
+        </style>
+
+        <div class="container">
+
+           <!--  part 1  -->
+            <div class="row align-items-center"id="part1" style="min-height: 90vh ;">
+                <div class="container dropdown my-5" >
+                    <div class="row">
+                        <div class="col-10">
+                            <h4 class="display-5 ">Atık kodunuzu seçiniz</h4>
+
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary hBack">Geri</button>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <select class="form-select dropselect mt-3" aria-label="Default select example" id="drop1">
+                            <option selected>Seçiniz</option>
+                           
+                          </select>
+                          <select class="form-select dropselect mt-3" aria-label="Default select example" id="drop2">
+                            <option selected>Seçiniz</option>
+                          </select>
+                          
+
+                            
+                              <div class="list-group mt-4 p3 codeUl">
+                                 
+                              </div>
+                         
+                          
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+           <!--  part2 -->
+           <div class="row align-items-center" id="part2"  style="min-height: 90vh ;">
+               <div class="container my-5">
+                <div class="row">
+                    <div class="col-10">
+                        <h4 class="display-5 ">Hangi atık üreticisi tipi sizi tanımlıyor?</h4>
+
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-primary hBack">Geri</button>
+
+
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a role="button" href="https:www.atikkutuphanesi.com/sektor/maden" style="background-color: rgb(221, 166, 58);" class="btn  ms-auto btn-lg text-white   m-1 w-100 custom ">Maden</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a role="button" href="https:www.atikkutuphanesi.com/sektor/tarim" style="background-color: rgb(229, 36, 59);"  class="btn btn-lg text-white text-center m-1 w-100 custom ">Tarım/Hayvancılık</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a role="button" href="https:www.atikkutuphanesi.com/sektor/imalat" style="background-color: rgb(255, 58, 33);"  class="btn  btn-lg text-white text-center m-1 w-100 custom ">İmalat sanayi</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/insaat" style="background-color: rgb(38, 189, 226);"  class="btn  ms-auto btn-lg text-white text-center m-1 w-100 custom ">İnşaat</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/saglik" style="background-color: rgb(253, 105, 37);"  class="btn btn-lg text-white text-center m-1 w-100 custom ">Sağlık sektörü</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/aritma" style="background-color: rgb(25, 72, 106);"  class="btn btn-lg text-white text-center m-1 w-100 custom">Atık su/su yönetim tesisleri</a>
+
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/egitim" style="background-color: rgb(0, 104, 157);"  class="btn  ms-auto btn-lg text-white text-center m-1 w-100 custom">Eğitim kurumları/Yurtlar</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/terminal" style="background-color: rgb(197, 25, 45);"  class="btn btn-lg text-white text-center m-1 w-100 custom">Terminaller</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/ev" style="background-color: rgb(10, 151, 217);"  class="btn btn-lg text-white text-center m-1 w-100 custom">Ev/apartman/site</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/kamu" style="background-color: rgb(79, 159, 56);"  class="btn  ms-auto btn-lg text-white text-center m-1 w-100 custom">Kamu kurumu</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/hizmet" style="background-color: rgb(252, 195, 11);"  class="btn btn-lg text-white text-center m-1 w-100 custom">Hizmet sektörü</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/askeri" style="background-color: rgb(28, 96, 9);"  class="btn btn-lg text-white text-center m-1 w-100 custom">Askeri birlikler</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/dövme" style="background-color: rgb(79, 159, 56);"  class="btn  ms-auto btn-lg text-white text-center m-1 w-100 custom">Güzellik merkezi/dövme/masaj</a>
+
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4">
+                        <a href="https:www.atikkutuphanesi.com/sektor/enerji" style="background-color: rgb(79, 159, 56);"  class="btn btn-lg text-white text-center m-1 w-100 custom">Enerji üretimi</a>
+                    </div>
+                    <div class="col-12 col-sm-6  col-md-4"></div>
+                    
+    
+                       
+                </div>
+
+               </div>
+           </div>
+           <hr>
+
+          <!--  part3 -->
+          <div class="row align-items-center" id="part3"  style="min-height: 90vh ;"> 
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-10">
+                        <h4 class="display-5 ">Atık türünüzü seçiniz</h4>
+
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-primary hBack">Geri</button>
+
+
+                    </div>
+                </div>
+                <div class="row icons my-3 justify-content-center ">
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/atikpil"><img   class="custom-image" src="{%static 'imgs/pil.png'%}" alt="" srcset=""></a>
+                        <h4 class="text-center">Atık pil ve akü</h4>
+                    </div>
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/atikyağ"><img  src="{%static 'imgs/yag.png'%}" alt="" srcset=""></a>
+                        <h4 class="text-center">Atık yağ</h4>
+                    </div>  
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/ambalajatik"><img src="{%static 'imgs/ambalaj.png'%}" alt="" srcset=""></a>
+                        <h4 class="text-center">Ambalaj atıkları</h4>
+                    </div>
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/atiklastik"><img src="{%static 'imgs/lastik.png'%}" alt="" srcset=""></a>
+                        <h4 class="text-center">Atık lastik</h4>
+                    </div>
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/tehlikeliatik"><img src="{%static 'imgs/tehlikeli.png'%}" alt="" srcset=""></a>
+                        <h4 class="text-center">Tehlikeli atık</h4>
+                    </div>
+
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/biyobozunuratik"><img src="{%static 'imgs/biyobozunur.png'%}" alt="" srcset=""></a>
+                         <h4 class="text-center">Biyobozunur atık</h4>
+                    </div>
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/bitkiselatik"><img src="{%static 'imgs/bitkisel.png'%}" alt="" srcset=""></a>
+                         <h4 class="text-center">Bitkisel atık yağ</h4>
+                    </div>
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/atikelektrik"><img src="{%static 'imgs/elektrik.png'%}" alt="" srcset=""></a>
+                         <h4 class="text-center">Atık elektrikli elektronik aletler</h4>
+                    </div>
+                    <div class="col-4 col-sm-3  d-flex flex-row align-items-center m-5  ">
+                        <a href="https://www.atikkutuphanesi.com/atiklist/tibbiatik"><img src="{%static 'imgs/tibbi.png'%}" alt="" srcset=""></a>
+                         <h4 class="text-center">Tıbbi atık</h4>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+          
+        </div>
+
+        
+
+        <script>
+            $(".hBack").on("click",(e) =>{
+                e.preventDefault();
+                window.history.back();
+            });
+        </script>
+
+  
+           
+            
+   </div>
+      
+   
+</div>     
+<script src="{% static 'js/drop.js' %}"></script>
+<script src="{% static 'js/button.js' %}"></script>
+
+{% endblock body %}

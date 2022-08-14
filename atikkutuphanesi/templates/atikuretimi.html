@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+{% block body %}
+{% load static %}
+        {% comment %} <link rel="stylesheet" href="{% static 'atikuretimi.css' %}"> {% endcomment %}
+        
+<div class="mainOfAU">
+    
+    
+    <div class="atikUretimiMain">
+        <div>
+            {% if data.urlName == "metalmadenciligi" or  data.urlName == "digermadenler" %}
+                <a  class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/metalmadenciligi">Metal madenciliği</a>
+                <a class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/digermadenler">Diger madenler</a>
+            {% elif data.urlName == "tarimhayvancilik" %}
+
+            {% elif data.urlName == "imalat" or  data.urlName == "termik" %}
+                <a  class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/imalat">İmalat sanayii</a>
+                <a class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/termik">Termik santral</a>
+            {% elif data.urlName == "aritma" or  data.urlName == "atikyakma" or data.urlName == "aku" or data.urlName == "geridonusum" %}
+                <a  class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/aritma">Arıtma tesisi</a>
+                <a class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/atikyakma">Atık yakma tesisi</a>
+                <a  class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/aku">Akü geri kazanım tesisi </a>
+                <a class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/geridonusum">Geri dönüşüm ve diğer</a>
+            
+            {% elif data.urlName == "liman" or  data.urlName == "alisveris" or  data.urlName == "akaryakit" or  data.urlName == "turistik" or  data.urlName == "arac" %}
+                <a  class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/liman">Liman işletmeleri</a>
+                <a class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/alisveris">Alış-veriş merkezi</a>
+                <a  class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/akaryakit">Akaryakıt istasyonu </a>
+                <a class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/turistik">Turistik tesis</a>
+                <a class="topmenu" href="https:www.atikkutuphanesi.com/atikuretimi/arac">Araç tamirhaneleri</a>
+
+            {% comment %} diğer kodların da buton biçimini ekle {% endcomment %}
+            
+
+        
+            {% else %}
+            {% endif %}</div>
+        <div class="titleAtikUretimi">
+            <h1>{{data.mainName}}</h1>
+            <hr>
+            
+
+
+    
+        </div>
+        <h2>Proses özellikleri</h2>
+        <hr>
+        <div class="middleAtikUretimi">
+            <div class="contentOfIt">
+                {{data.prosesFeatures}}
+               
+                
+
+            </div>
+
+            <h2>Proses kaynaklı atıklar</h2>
+            <hr>
+            <ul class="mainCodes">
+                {% for i in data.prosesKaynakli  %}
+                    <li><a class="proses" href="">{{i}}</a></li>
+                   
+            
+                {% endfor %}
+                
+
+            </ul>
+            <h2>Oluşabilecek diğer atıklar</h2>
+            <hr>
+            <ul class="otherCodes">
+                
+                {% for i in data.olusabilecek_diger  %}
+                     <li><a class="diger" href="">{{i}}</a></li>
+            
+                {% endfor %}
+               
+
+            </ul>
+            
+            <a  href="{{data.files.url}}" download="{{data.files.url}}">click to download file</a>
+           
+             
+
+        </div>
+    </div>
+</div>
+<script>
+    ;
+    var digera = document.getElementsByClassName("diger");
+    
+    
+    var idlist2= [{% for i in data.olusabilecek_digerId %}
+          "{{i}}",
+          
+     {% endfor %}]
+     
+     for (let i = 0; i < digera.length; i++) {
+         digera[i].href = `https:www.atikkutuphanesi.com/atikkod/${idlist2[i]}`; 
+         
+
+     }
+</script>
+
+<script>
+    ;
+    var prosesa = document.getElementsByClassName("proses");
+   
+    
+    var idlist1= [{% for i in data.proseskaynakliId %}
+          "{{i}}",
+          
+     {% endfor %}]
+    
+     for (let i = 0; i < prosesa.length; i++) {
+         prosesa[i].href = `https:www.atikkutuphanesi.com/atikkod/${idlist1[i]}`; 
+         
+
+     }
+
+    
+
+</script>
+
+
+
+    
+{% endblock body %} 

@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% block body %}
+{% load static %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        {% comment %} <link rel="stylesheet" href="{% static 'atikcode.css' %}"> {% endcomment %}
+        <style>
+      
+
+                .btnn{
+                        height:5rem;
+                        display: flex !important;
+                        justify-content: center !important;
+                        align-items: center !important;
+
+                }
+
+        </style>
+        <div class="container" style="min-height: 100vh;">
+                <div class="container mt-5 p-3 border border-5 rounded"style="background-color:whitesmoke;">
+                        <div class="row mb-4">
+                                <h1 class="display-5">Atık Kütüphanesi’ne hoşgeldiniz!</h1>
+                        </div>
+                        <div class="row">
+                                <p class="m-1 p-class">
+                                        Oluşturulan bu dijital kütüphane hizmeti ile atık yönetiminize yardımcı olunması amaçlanmıştır. Ürettiğiniz atığın yönetimini; atık türleri üzerinden kontrol edebilir veya bulunduğunuz sektör başlığı altından atık kodunu bularak, bilgi formlarına ulaşabilirsiniz. Bunlara ek olarak, atığınızın kodunu biliyorsanız, aşağıda bulunan menü yardımı ile bilgi formlarına direkt ulaşım sağlayabilirsiniz.   
+                                </p>
+                        </div>
+                        <div class="row justify-content-center mt-5 ">
+                                <div class="col-lg-3 m-2">
+                                <a class="btn btnn btn-secondary w-100  " href="https://www.atikkutuphanesi.com/wastenavigation/#part1" role="button">   Atık kodu ile arama yapacağım </a>
+                                        
+                                        
+                                        
+                                </div>
+                                <div class="col-lg-3 m-2">
+                                        
+                                        <a class="btn btn-secondary w-100 btnn  " href="https://www.atikkutuphanesi.com/wastenavigation/#part2" role="button">Sektörüme göre arama yapacağım</a>
+                                        
+                                </div>
+                                <div class="col-lg-3 m-2">
+                                        
+                                        <a class="btn btn-secondary w-100 btnn " href="https://www.atikkutuphanesi.com/wastenavigation/#part3" role="button">Atık türüne göre arama yapacağım</a>
+                                        
+                                </div>
+                        </div>
+                </div>
+                <div class="container mt-5 p-3 border border-5 rounded">
+                        <div class="row">
+                                <div class="col-sm-3">
+                                        <img  src="{%static 'imgs/biglogo2.png'%}" alt="" srcset="" style="max-height:2.5rem ;">
+                                </div>
+                                
+                                        <div class="col-3 col-sm-1 ms-auto">
+                                                <img style="max-height: 2.5rem;" class="top-part-c" src="{%static 'imgs/6p.png'%}" alt="" srcset="">
+                                
+                                        </div>
+                                        <div class="col-3 col-sm-1">
+                                                <img style="max-height: 2.5rem;" class="top-part-c" src="{%static 'imgs/7p.png'%}" alt="" srcset="">
+                                
+                                        </div>
+                                        <div class="col-3 col-sm-1">
+                                                <img style="max-height: 2.5rem;" class="top-part-c" src="{%static 'imgs/8p.png'%}" alt="" srcset="">
+                                
+                                        </div>
+                                        <div class="col-3 col-sm-1">
+                                                <img style="max-height: 2.5rem;" class="top-part-c" src="{%static 'imgs/11p.png'%}" alt="" srcset="">
+                                
+                                        </div>
+                                        <div class="col-3 col-sm-1">
+                                                <img style="max-height: 2.5rem;" class="top-part-c" src="{%static 'imgs/12p.png'%}" alt="" srcset="">
+                                
+                                        </div>
+                                        <div class="col-3 col-sm-1">
+                                                <img style="max-height: 2.5rem;" class="top-part-c" src="{%static 'imgs/13p.png'%}" alt="" srcset="">
+                                
+                                        </div>
+                                        <div class="col-3 col-sm-1">
+                                                <img style="max-height: 2.5rem;" class="top-part-c" src="{%static 'imgs/14p.png'%}" alt="" srcset="">
+                                
+                                        </div>
+                                
+                              
+                        </div>
+                </div>
+                <div class="row text-center mb-5">
+                        <h3>
+                         <small class="text-muted">Bu çalışma ile sürdürülebilir kalkınma amaçlarını destekliyoruz</small>
+                         </h3>
+                </div>
+        
+        </div>
+<!-- 
+        <div class="container-main" style="min-height: 100vh;">
+                <div class="container">
+                       
+                        <div class="middle-part">
+                                <div class="middle-part-c">
+                                        <h2 class="h-class">Atık Kütüphanesi’ne hoşgeldiniz!</h2>
+                                        <p class="p-class">Oluşturulan bu dijital kütüphane hizmeti ile atık yönetiminize yardımcı olunması amaçlanmıştır. Ürettiğiniz atığın yönetimini; atık türleri üzerinden kontrol edebilir veya bulunduğunuz sektör başlığı altından atık kodunu bularak, bilgi formlarına ulaşabilirsiniz. Bunlara ek olarak, atığınızın kodunu biliyorsanız, aşağıda bulunan menü yardımı ile bilgi formlarına direkt ulaşım sağlayabilirsiniz.</p>
+                                        <div class="button-part">
+                                                <a href="https://www.atikkutuphanesi.com/wastenavigation/#part1"><div>Atık kodu ile arama yapacağım</div></a>
+                                                <a href="https:www.atikkutuphanesi.com/wastenavigation/#part2"><div>Sektörüme göre arama yapacağım</div></a>
+                                                <a href="https:www.atikkutuphanesi.com/wastenavigation/#part3"><div>Atık türüne göre arama yapacağım</div></a>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="top-part">
+                                <img class="top-part-c top-part-c-logo" src="{%static 'imgs/biglogo2.png'%}" alt="" srcset="">
+                                <span style="color: black ; margin-top:1rem;">Bu çalışma ile sürdürülebilir kalkınma amaçlarını destekliyoruz.</span>
+                                <img class="top-part-c" src="{%static 'imgs/6p.png'%}" alt="" srcset="">
+                                <img class="top-part-c" src="{%static 'imgs/7p.png'%}" alt="" srcset="">
+                                <img class="top-part-c" src="{%static 'imgs/8p.png'%}" alt="" srcset="">
+                                <img class="top-part-c" src="{%static 'imgs/11p.png'%}" alt="" srcset="">
+                                <img class="top-part-c" src="{%static 'imgs/12p.png'%}" alt="" srcset="">
+                                <img class="top-part-c" src="{%static 'imgs/13p.png'%}" alt="" srcset="">
+                                <img class="top-part-c" src="{%static 'imgs/14p.png'%}" alt="" srcset="">
+
+                        </div>
+                        <div class="footer-part"></div>
+                </div>
+
+        </div>
+ -->
+
+
+
+
+
+
+
+
+
+      
+               <!--  <div class="container-main" style="min-width:100vw; min-height:100vh;  ">
+                        <div class="directoryPart" style="margin-left: 3rem; max-width: 80vw;  "  >
+                                <h1 class="color">Hoşgeldiniz</h1>
+                                <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt necessitatibus voluptas dignissimos voluptatem itaque nihil praesentium optio ut temporibus magni quis, aliquid fuga, consequuntur qui natus veritatis ea beatae vero debitis reprehenderit aliquam possimus. Obcaecati molestiae eaque nam blanditiis explicabo distinctio sequi voluptatibus eveniet, odit totam eligendi eum accusantium repudiandae quis autem consequuntur magni ex nesciunt facere labore possimus in? Neque consectetur, magnam reprehenderit repellat nostrum quibusdam similique nesciunt sed dolor totam. Aliquid id quisquam inventore voluptate quam cumque nulla autem quo voluptatem rerum? Debitis doloremque reprehenderit perspiciatis quia, dolor accusantium fugit. Voluptatum, vitae quisquam? Maiores error autem adipisci a!</p>
+                                <a  style="color: red ;" href="http://127.0.0.1:8000/wastenavigation/#part1"><div class="btn">click</div></a>
+                                <hr>
+                                <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, ad neque! Adipisci odio expedita laboriosam. At ad maxime dicta debitis dignissimos sapiente amet iste? Distinctio quod sequi aperiam incidunt veniam!</p>
+                                <a  style="color: red ;" href="http://127.0.0.1:8000/wastenavigation/#part2"><div class="btn">click</div></a>
+                                <hr>
+                                <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus suscipit nisi voluptates, iure maxime enim. Optio debitis fugiat, ducimus voluptas odio nam esse deleniti quis, impedit doloribus hic perspiciatis rerum.</p>
+                                <a  style="color: red ;" href="http://127.0.0.1:8000/wastenavigation/#part3"><div class="btn">click</div></a>
+                
+                
+                            </div>
+                            -->
+                            
+                
+                
+                
+
+       
+        
+
+
+{% endblock body %}

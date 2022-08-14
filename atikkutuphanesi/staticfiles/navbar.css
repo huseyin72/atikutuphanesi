@@ -1,0 +1,187 @@
+
+#nav{
+  /* overflow-x: hidden; */
+
+  width: 100vw;
+  min-height: 3rem;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+}
+.upBanner{
+  display: flex;
+  
+  align-items: center;
+
+}
+.logopng{
+  height: 3rem; 
+  width:auto;
+  padding: 0;
+  margin-right:20vw;
+
+}
+
+
+
+.listSide ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 2rem;
+  
+  
+}
+.listSide ul li{
+  margin:1rem;
+  margin-right: 4vw;
+}
+.logoSide{
+  
+  /* margin: 1rem 3rem; */
+  margin: 0.2rem 3rem;
+  
+}
+
+.middleLine{
+  min-width: 100vw;
+  height: 0.5rem;
+  background: linear-gradient(to right,#e5243b 0,#e5243b 5.88235%,#dda63a 5.88235%,#dda63a 11.7647%,#4c9f38 11.7647%,#4c9f38 17.6471%,#c5192d 17.6471%,#c5192d 23.5294%,#ff3a21 23.5294%,#ff3a21 29.4118%,#26bde2 29.4118%,#26bde2 35.2941%,#fcc30b 35.2941%,#fcc30b 41.1765%,#a21942 41.1765%,#a21942 47.0588%,#fd6925 47.0588%,#fd6925 52.9412%,#dd1367 52.9412%,#dd1367 58.8235%,#fd9d24 58.8235%,#fd9d24 64.7059%,#bf8b2e 64.7059%,#bf8b2e 70.5882%,#3f7e44 70.5882%,#3f7e44 76.4706%,#0a97d9 76.4706%,#0a97d9 82.3529%,#56c02b 82.3529%,#56c02b 88.2353%,#00689d 88.2353%,#00689d 94.1176%,#19486a 94.1176%,#19486a 100%) repeat scroll 0 0;
+ 
+ 
+}
+
+
+
+
+.bottom_banner{
+  
+  z-index: 10001;
+  min-width: 100vw;
+ 
+  background-color: #1f4e6e;
+}
+.init{
+  height: 1rem;
+}
+
+.second{
+  display:grid;
+  grid-template-columns: auto auto auto;
+  
+  
+ 
+}
+.associate li a{
+  color: white;
+}
+.associate li{
+  color: #fff;
+  letter-spacing: 3px;
+  padding: 0px 30px;
+  padding-top:0.3rem;
+  padding-bottom:0.3rem;
+  border-radius: 0.5rem;
+  margin:0.3rem 2rem;
+
+}
+.associate li:hover{
+  background-color:#214863;
+
+}
+
+ 
+
+/* drop down yeni şekli ile */
+.special{
+  position: relative;
+}
+.div1{
+  position: absolute;
+  top: 1.5rem;
+  left: -20rem;
+  width: auto;
+  z-index: 100;
+  background-color:#00689d;
+  opacity: 0.9;
+  border-radius: 2rem;
+  display: none;
+}
+.div1 ul{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.special:hover .div1{
+  display: grid;
+  
+}
+@media (max-width: 750px) {
+  .logopng{
+    height: 2rem; 
+    width:auto;
+    padding: 0;
+    margin: 0 0;
+
+   
+  
+  }
+  .logoSide{
+    margin: 0.2rem 0.2rem;
+   }
+  
+
+
+
+
+  .listSide ul li{
+    margin:0.5rem 0.7rem;
+    margin-right: 0;
+    font-size: 0.5rem;
+  }
+  .div1{
+    left: -5rem;
+    max-width: 80vw;
+    top: 0.5rem;
+  }
+  .div1 ul{
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+
+  .associate li a{
+    margin:0;
+    font-size: 0.5rem;
+
+  }
+  
+  
+
+ }
+ 
+
+ @media screen and (min-width:750px) and (max-width:1024px){
+  .logopng{
+    height: 2.7rem; }
+
+  .listSide ul li{
+    margin:1rem 0.5rem;
+    margin-right: 0;
+    font-size: 0.8rem;
+    }
+    .div1{
+      position: absolute;
+      top: 1rem;}
+
+ }
+
+
+
+
+

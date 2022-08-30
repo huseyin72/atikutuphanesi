@@ -35,7 +35,7 @@
           <h5 style="color: red;" class="h4 mt-5">Detaylı bilgi için ilgili atık kodlarını inceleyebilirsiniz </h5>
      </div>
      <div class="row mt-5">
-          <select class="form-select dropselect" name="" id="atik">
+          <select class="form-select dropselect " name="" id="atik">
                {% for i in firstStep %}
 
                <option value="{{i.selfMark}}">{{i.content}}</option>
@@ -44,9 +44,9 @@
 
                {% endfor %}
           </select>
-          <select class="form-select dropselect" name="" id="atik2">
+          <select class="form-select dropselect mt-3" name="" id="atik2">
           </select>
-          <ul id="contentUl">
+          <ul id="contentUl" class="mt-3">
 
 
           </ul>

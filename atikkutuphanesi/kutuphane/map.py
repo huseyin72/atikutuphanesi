@@ -6,7 +6,7 @@ import pandas as pd
 
 def viv(name):
      try:
-          df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi/datas/"+name+".csv")
+          df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
                    
           dff = df.iloc[:,5:6].values
           list =[]

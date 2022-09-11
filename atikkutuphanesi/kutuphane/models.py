@@ -3,6 +3,7 @@ from pickle import TRUE
 from django.db import models
 
 
+
 # Create your models here.
 """ class Atikcodes(models.Model):
     idNo = models.CharField(max_length=10, help_text="örn. 3",default="")

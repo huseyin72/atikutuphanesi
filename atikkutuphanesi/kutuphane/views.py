@@ -2,6 +2,7 @@
 
 
 
+import code
 from glob import glob
 from urllib import response
 from wsgiref.util import FileWrapper
@@ -11,7 +12,6 @@ from django.http import Http404, HttpResponse
 from django.http import StreamingHttpResponse
 from django.shortcuts import redirect, render
 from django.contrib import messages
-import mimetypes
 import os
 
 
@@ -135,8 +135,10 @@ def atik_list(request,atikkind):
     
 
 def atikcode(request,id):
+    idCode = id
     codes = Atikcodes2.objects.filter( idNo = id)
-    codess = Atikcodes2()
+    if codes:
+        codess = Atikcodes2()
     for i in codes:
         codess.idNo = i.idNo
         codess.itsUpTitle = i.itsUpTitle
@@ -159,8 +161,9 @@ def atikcode(request,id):
         codess.file1 = i.file1
         codess.file2 = i.file2
         
-        
-    return render(request,"atikcode.html",{"data": codess})
+        return render(request,"atikcode.html",{"data": codess,"mapId":idCode})
+    return render(request,"atikcode.html",{"mapId":idCode})
+    
    
    
     
@@ -196,6 +199,8 @@ def atik_uretimi(request,atikuretimi):
 def sektor(request, sektor):
     return HttpResponse("yönlendirme sayfası")
 
+
+#download etme bölümü
 def download(request,path):
    
     file_path = os.path.join(settings.MEDIA_ROOT,path)
@@ -238,31 +243,17 @@ def contact1(request):
 
 
 
+def map(request,id):
+    id = str(id)
+    from . import map
+    mapTr = map.viv(id)
+    if(mapTr):
+        return render(request,"map.html",{"data":mapTr[1],"type":mapTr[0]})
+    
+    return render(request,"map.html",)
+    
 
-
-#def downloadfile(request,path):
-    #file_path = os.path.join(path)
-    """ with open(file_path,"rb") as fh:
-            response = HttpResponse(fh.read(),content_type="application/files")
-            response["content-disposition"] = "inline;filename="+ os.path.basename(file_path)
-            print(os.path.basename(file_path))
-            
-            return response """
-
-    #base_dir = "/Users/huseyinozdemir/Desktop/atikkutuphanesi/atikkutuphanesi/media/"
-    #filename = "bale.jpg"
-    #thefile = os.path.join(path)
-    #filepath = base_dir + filename
-     
-    #filename = os.path.basename(thefile)
-    #chunk_size = 8192
-    #response = StreamingHttpResponse(FileWrapper(open(thefile,"rb"),chunk_size),
-    #content_type=mimetypes.guess_type(thefile)[0])
-    #response["content-length"] = os.path.getsize(thefile)
-    #response["content-disposition"] = ("attachment;filename=%s" %filename)
-    #print("*************************************************")
-    #return response
-
+    
 
 def sitemap(request):
     return render(request,"sitemap.xml")

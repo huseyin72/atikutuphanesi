@@ -20,6 +20,7 @@ urlpatterns = [
     path('atikuretimi/<str:atikuretimi>', views.atik_uretimi,name="atik_uretimi"),
     path('sektor/<str:sektor>', views.sektor ,name="atik_uretimi"), #sektör yönlendirme sayfası 
     path('sitemap/', views.sitemap,name="sitemap"),
+    path('atikkod/<int:id>/map/', views.map,name=""),
     
    
      

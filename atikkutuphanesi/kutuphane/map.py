@@ -1,11 +1,13 @@
 import csv
 from os import execv
 import pandas as pd
+from sqlalchemy import null
 
 
 
 def viv(name):
      try:
+          #df = pd.read_csv("/home/hsyn722/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
           df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
                    
           dff = df.iloc[:,5:6].values
@@ -32,7 +34,7 @@ def viv(name):
                
           return list
      except:
-          return {}
+          return 
 
  
      

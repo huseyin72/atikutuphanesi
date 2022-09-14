@@ -2,6 +2,7 @@
 
 
 
+from ast import Str
 import code
 from glob import glob
 from urllib import response
@@ -93,7 +94,7 @@ def atik_list(request,atikkind):
     for i in the_content:
         data.urlname = i.urlname
         data.whatIsIt = i.whatIsIt
-        data.whyİmportant = i.whyİmportant
+        data.whyImportant = i.whyImportant
         data.whereAccours = i.whereAccours
         data.howUnderstand = i.howUnderstand
         data.mainname = i.mainname

@@ -248,8 +248,9 @@ def map(request,id):
     id = str(id)
     from . import map
     mapTr = map.viv(id)
+    print(mapTr)
     if(mapTr):
-        return render(request,"map.html",{"data":mapTr[1],"type":mapTr[0]})
+        return render(request,"map.html",{"data":mapTr[2],"type":mapTr[3]})
     
     return render(request,"map.html",)
     

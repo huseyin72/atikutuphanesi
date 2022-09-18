@@ -42,7 +42,7 @@ def viv(name):
      try:
           
           #df = pd.read_csv("/home/hsyn722/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
-          df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
+          df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name)
           #df = pd.read_csv(name)
           sıra_no = list()
           isletme_adi = list()
@@ -59,7 +59,7 @@ def viv(name):
                isletme_adi.append(i)
 
           #tesis ili 
-          print(df["Tesis İli"])
+          
           for i in df["Tesis İli"]:
                tesis_ili.append(i)
 
@@ -79,7 +79,7 @@ def viv(name):
           try:
                #df = pd.read_csv("/home/hsyn722/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
                #df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
-               df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv",skiprows=1)
+               df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name,skiprows=1)
                sıra_no = list()
                isletme_adi = list()
                tesis_ili = list()
@@ -106,7 +106,7 @@ def viv(name):
 
                for name in tesis_ili:
                     city_count[name] = city_count.get(name, 0) + 1
-               print(city_count)
+               #print(city_count)
                total_list = [sıra_no,isletme_adi,city_count,lisans_konulari]
              
                return total_list

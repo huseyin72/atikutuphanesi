@@ -245,12 +245,22 @@ def contact1(request):
 
 
 def map(request,id):
-    id = str(id)
+    id_ = str(id)
     from . import map
-    mapTr = map.viv(id)
-    print(mapTr)
+    from . import map_model
+    filter = map_model.Map_file.objects.filter(csv_id = id_)
+    url = ""
+    for row in filter:
+        url = row.csv_file.url
+
+    
+    object = list(filter.values())[0]
+    #print(object["csv_mark"])
+    
+    mapTr = map.viv(url)
+    #print(mapTr)
     if(mapTr):
-        return render(request,"map.html",{"data":mapTr[2],"type":mapTr[3]})
+        return render(request,"map.html",{"data":mapTr[2],"type":mapTr[3],"name":object["csv_mark"]})
     
     return render(request,"map.html",)
     

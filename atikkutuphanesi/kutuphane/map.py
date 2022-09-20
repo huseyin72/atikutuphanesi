@@ -39,16 +39,22 @@ import pandas as pd
  
  """
 def viv(name):
+     df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name)
+     if "Tesisi İli" in df.columns :
+          df=df.rename(columns = {'Tesisi İli':'Tesis İli'})
+          #df = pd.read_csv("/home/hsyn722/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
+          #df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
+
      try:
           
-          #df = pd.read_csv("/home/hsyn722/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
-          df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name)
-          #df = pd.read_csv(name)
+         
           sıra_no = list()
           isletme_adi = list()
           tesis_ili = list()
           lisans_konulari = list()
           city_count = {}
+          city_name = {}
+     
           # sıra no
           for i in df["Sıra No"]:
                sıra_no.append(i)
@@ -58,33 +64,58 @@ def viv(name):
           for i in df["İşletme Adı"]:
                isletme_adi.append(i)
 
-          #tesis ili 
-          
+          #tesis ili
           for i in df["Tesis İli"]:
                tesis_ili.append(i)
-
+          
+          
 
           #lisans konulari
           for i in df["Lisans Konuları"]:
                lisans_konulari.append(i)
 
           for name in tesis_ili:
+              
                city_count[name] = city_count.get(name, 0) + 1
+               
+               
+               a = df.loc[df["Tesis İli"] == name]
+               
+               dict_ = {}
+               
+               for index, row in a.iterrows():
+                    dict_[row["Lisans Konuları"]] =  row["İşletme Adı"]
+               city_name[name] = dict_
 
-          total_list = [sıra_no,isletme_adi,city_count,lisans_konulari]
+              
+
+          
+
+
+          
+
+
+          total_list = [sıra_no,isletme_adi,city_count,city_name]
          
           return total_list
           
      except:
           try:
-               #df = pd.read_csv("/home/hsyn722/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
-               #df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
-               df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name,skiprows=1)
+               df = df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name,skiprows=1)
+               if "Tesisi İli" in df.columns :
+                   df=df.rename(columns = {'Tesisi İli':'Tesis İli'})
+                  
+               # second try ****************************
+           
+               
+
                sıra_no = list()
                isletme_adi = list()
                tesis_ili = list()
                lisans_konulari = list()
                city_count = {}
+               city_name = {}
+              
 
                # sıra no
                for i in df["Sıra No"]:
@@ -95,19 +126,31 @@ def viv(name):
                for i in df["İşletme Adı"]:
                     isletme_adi.append(i)
 
-               #tesis ili 
+               #tesis ili
                for i in df["Tesis İli"]:
                     tesis_ili.append(i)
+              
 
 
                #lisans konulari
                for i in df["Lisans Konuları"]:
                     lisans_konulari.append(i)
-
+               
                for name in tesis_ili:
                     city_count[name] = city_count.get(name, 0) + 1
-               #print(city_count)
-               total_list = [sıra_no,isletme_adi,city_count,lisans_konulari]
+                    
+                    a = df.loc[df["Tesis İli"] == name]
+               
+                    dict_ = {}
+               
+                    for index, row in a.iterrows():
+                         dict_[row["Lisans Konuları"]] =  row["İşletme Adı"]
+                         city_name[name] = dict_
+                    
+
+
+               total_list = [sıra_no,isletme_adi,city_count,city_name]
+              
              
                return total_list
                

@@ -252,13 +252,16 @@ def map(request,id):
     url = ""
     for row in filter:
         url = row.csv_file.url
+    
+    if (filter):
+        object = list(filter.values())[0]
+  
 
-    
-    object = list(filter.values())[0]
-    #print(object["csv_mark"])
-    
+  
     mapTr = map.viv(url)
-    #print(mapTr)
+    
+   
+  
     if(mapTr):
         return render(request,"map.html",{"data":mapTr[2],"type":mapTr[3],"name":object["csv_mark"]})
     

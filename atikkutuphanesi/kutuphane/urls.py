@@ -21,11 +21,10 @@ urlpatterns = [
     path('sektor/<str:sektor>', views.sektor ,name="atik_uretimi"), #sektör yönlendirme sayfası 
     path('sitemap/', views.sitemap,name="sitemap"),
     path('atikkod/<int:id>/map/', views.map,name=""),
-    
-   
-     
-    path('contact', views.contact1, name="contact")
-   
+    path('contact', views.contact1, name="contact"),
+    path('trainings',views.trainings,name="trainings")
+
+
     
 
 ]

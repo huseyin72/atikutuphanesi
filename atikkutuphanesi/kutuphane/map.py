@@ -1,6 +1,16 @@
 
 
+
 import pandas as pd
+
+class MapObject:
+     def __init__(self,cityName, type):
+          self.cityName = cityName
+          self.type = type
+     
+     def returnDict(self):
+          return {"city":self.cityName, "type":self.type} #[self.cityName, self.type]
+
 
 
 
@@ -39,7 +49,12 @@ import pandas as pd
  
  """
 def viv(name):
+
+     
      df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name)
+     if "Tesis İli " not in df.columns:
+          df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name)
+
      if "Tesisi İli" in df.columns :
           df=df.rename(columns = {'Tesisi İli':'Tesis İli'})
           #df = pd.read_csv("/home/hsyn722/atikutuphanesi/atikkutuphanesi/staticfiles/datas/"+name+".csv")
@@ -73,7 +88,7 @@ def viv(name):
           #lisans konulari
           for i in df["Lisans Konuları"]:
                lisans_konulari.append(i)
-
+          print(lisans_konulari)
           for name in tesis_ili:
               
                city_count[name] = city_count.get(name, 0) + 1
@@ -95,7 +110,8 @@ def viv(name):
           
 
 
-          total_list = [sıra_no,isletme_adi,city_count,city_name]
+          total_list = [sıra_no,isletme_adi,city_count,city_name,lisans_konulari]
+          
          
           return total_list
           
@@ -149,7 +165,7 @@ def viv(name):
                     
 
 
-               total_list = [sıra_no,isletme_adi,city_count,city_name]
+               total_list = [sıra_no,isletme_adi,city_count,city_name,lisans_konulari]
               
              
                return total_list

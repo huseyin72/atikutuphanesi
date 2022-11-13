@@ -25,6 +25,7 @@
 .svg-turkiye-haritasi svg {
   width: 100%;
   height: auto;
+
 }
 .il-isimleri {
   position: absolute;
@@ -42,7 +43,7 @@
 }
 #svg-turkiye-haritasi path {
   z-index: -1;
-  cursor: pointer;
+  
   fill: #E8E8E8;
 }
 #svg-turkiye-haritasi path:hover {
@@ -52,11 +53,12 @@
   pointer-events: none;
 }
 text{
-  fill:  #C5FAD5;
-  border: 3rem black solid;
+
+  cursor: pointer;
+/*   outline: 1px solid red */;
 }
 .legend{
-  display: none;
+  /* display: none; */
 }
 
 
@@ -64,7 +66,13 @@ text{
   
     
     <h1 class="display-5 mt-3">{{name}}</h1>
-    <p class="font-italic mt-3"> <em>Firma isimlerini ve lisans konularını görmek için harita üzerinde ilgili şehre tıklayınız. </em></p>
+    {% for result in returnResult %}
+      <p> {{result.returnResult.subjects}} </p>
+    {% endfor %}
+    
+   
+    
+   {% comment %}  <p class="font-italic mt-3"> <em>Firma isimlerini ve lisans konularını görmek için harita üzerinde ilgili şehre tıklayınız. </em></p> {% endcomment %}
     <div class="il-isimleri"></div>
     <div class="svg-turkiye-haritasi">
 
@@ -340,15 +348,28 @@ text{
       </svg>
     </div>
     <div class="row mb-5">
-      <div class="col-1"></div>
-      <div class="col-10 legend  text-center rounded " style="min-height:5rem ;;background-color:		#F5F5F5;">
-        <div class="col-1"></div>
-    </div>
-    </div>
-    <!-- SVG Türkiye Haritası -->
+      
+      <div class="col-4 legend  text-center rounded " style="min-height:8rem ;;background-color:		#F5F5F5;">
+        {% for i in  subject%}
+          <p> {{i}} </p>
+        
+        {% endfor %}
+      </div>
+        <div class="col-8"></div>
+    
+    </div> 
+  <!--    SVG Türkiye Haritası -->
    
 
     <script>
+      var colors = {
+        "Toplama Ayırma Tesisi":"blue",  
+        " Tehlikesiz Atık Ön İşlem Tesisleri":"red",
+        "Atık Ara Depolama":"green",
+        "Tehlikeli Atık Geri Kazanımı":"pink",
+        "Maden Atığı Bertaraf":"grey"
+
+      };
       
     
 
@@ -382,11 +403,171 @@ function svgturkiyeharitasi() {
        {% endfor %}
     } 
     typ = {{type | safe}}
+    lisans_konulari = {{lisans_konulari | safe}}
+    {% comment %} legend.innerHTML ="";
+    lisans_konulari.forEach(item => {
+
+      
+      legend.style.display = "block";
+      
+
+      const p = document.createElement("p");
+      
+      p.innerHTML = item;
+
+      legend.appendChild(p);
+      
+
+
+     
+    })  {% endcomment %}
     
     //console.log(data_iladi2)
    // console.log(data_iladi)
   //databes çekilen dictler
-  keys.forEach((element,index) => {
+mainDictList = [];
+{% for obj in returnResult  %}
+  var the_dict = {{obj.returnResult|safe}}
+
+ 
+  mainDictList.push(the_dict);
+
+{% endfor %}
+
+
+  mainDictList.forEach((element,index) => {
+    const elementt = document.querySelector('#svg-turkiye-haritasi');
+    const info = document.querySelector('.il-isimleri');
+    const id = document.querySelector(`#${element.city}`);
+    const text = document.querySelector(".text");
+    var svgNS = "http://www.w3.org/2000/svg";
+    //var newText = document.createElementNS(svgNS,"text");
+    
+    if (element.city ==="İZMİR") {
+     
+     
+    
+     var x = Math.round(id.getBBox().x+(id.getBBox().width/2.5));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/1.3)); 
+
+     
+   }else if (element.city ==="MUĞLA") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/4));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/4)); 
+   }
+  else if (element.city ==="ANKARA") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/2.4));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/3)); 
+   }
+  else if (element.city ==="TEKİRDAĞ") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/4));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/2.5)); 
+   }
+   else if (element.city ==="MANİSA") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/4));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/2)); 
+   }
+   else if (element.city ==="BURSA") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/4));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/2.5)); 
+   }
+   else if (element.city ==="KIRIKKALE") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/6));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/2)); 
+   }
+   else if (element.city ==="DÜZCE") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/5));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/3)); 
+   }
+   else if (element.city ==="MARDİN") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/4));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/2)); 
+   }
+   else if (element.city ==="ÇANAKKALE") {
+    var x = Math.round(id.getBBox().x+(id.getBBox().width/2));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/2)); 
+   }
+
+   
+   else {
+     var x = Math.round(id.getBBox().x+(id.getBBox().width/4));
+     var y = Math.round(id.getBBox().y+(id.getBBox().height/1.5)); 
+
+   }
+    //console.log(id)
+    var counter = 0;
+    for (const [key, value] of Object.entries(element.subjects)) {
+      var newText = document.createElementNS(svgNS,"text");
+
+      if(counter % 2 == 1){
+
+        x +=3;
+        y -=5;
+
+      }else{
+
+        x +=3;
+        y +=5;
+        
+      }
+      counter +=1;
+
+
+     newText.setAttributeNS(null,"x",x);     
+     newText.setAttributeNS(null,"y",y); 
+     newText.setAttributeNS(null,"font-size","25"); 
+     newText.setAttributeNS(null,"fill",colors[key]);
+   //id.setAttribute("data-iladi",element +" "+ data_iladi[index])
+
+   //id.children[0].style.fill = "#FFA351FF"; //#228B22
+  
+   
+
+   newText.addEventListener(
+    'mouseover',
+    function (event) {
+      
+        info.innerHTML = [
+          '<div>',
+          `${key}-${value}`,
+          '</div>'
+        ].join('');
+      
+    }
+  );
+
+  newText.addEventListener(
+    'mousemove',
+    function (event) {
+      info.style.top = event.pageY + 25 + 'px';
+      info.style.left = event.pageX + 'px';
+    }
+  );
+
+  newText.addEventListener(
+    'mouseout',
+    function (event) {
+      info.innerHTML = '';
+    }
+  );
+   
+
+   
+   //var textNode = document.createTextNode(value);
+   var textNode = document.createTextNode(".");
+   
+   newText.appendChild(textNode);
+   elementt.appendChild(newText)
+   
+}
+
+
+    
+  });
+
+
+
+{% comment %}   keys.forEach((element,index) => {
     const elementt = document.querySelector('#svg-turkiye-haritasi');
     const info = document.querySelector('.il-isimleri');
     const id = document.querySelector(`#${element}`);
@@ -406,15 +587,19 @@ function svgturkiyeharitasi() {
       var x = Math.round(id.getBBox().x+(id.getBBox().width/2));
       var y = Math.round(id.getBBox().y+(id.getBBox().height/2)); 
 
-    } 
+    }
+      newText.setAttributeNS(null,"x",x);     
+      newText.setAttributeNS(null,"y",y); 
+      newText.setAttributeNS(null,"font-size","15"); 
     //id.setAttribute("data-iladi",element +" "+ data_iladi[index])
 
-    id.children[0].style.fill = "#FFA351FF"; //#228B22
+    //id.children[0].style.fill = "#FFA351FF"; //#228B22
    
     
     newText.setAttributeNS(null,"x",x);     
     newText.setAttributeNS(null,"y",y); 
     newText.setAttributeNS(null,"font-size","15");
+
     
     
 
@@ -426,7 +611,10 @@ function svgturkiyeharitasi() {
     elementt.appendChild(newText)
 
     
-  });
+  }); {% endcomment %}
+
+
+
     //.log(keys)
   /* const id = document.querySelector("#adana");
   const text = document.querySelector(".text");
@@ -479,7 +667,7 @@ function svgturkiyeharitasi() {
  /*  for (const [key, value] of Object.entries.values(data_iladi2)) {
     console.log(key, value);
 } */
-  element.addEventListener(
+/*   element.addEventListener(
     'click',
     function (event) {
       legend.innerHTML ="";
@@ -507,26 +695,12 @@ function svgturkiyeharitasi() {
 
       legend.appendChild(the_html_) ;
       legend.appendChild(ul) ;
-      /* if (event.target.tagName === 'path') {
-        const parent = event.target.parentNode;
-        const id = parent.getAttribute('id');
-
-        if (
-          id === 'guney-kibris'
-        ) {
-          return;
-        }
-
-        window.location.href = (
-          '#'
-          + id
-          + '-'
-          + parent.getAttribute('data-plakakodu')
-        );
-      } */
+     
     }
   );
-}
+  
+ */
+ }
 
     </script>
     <script>

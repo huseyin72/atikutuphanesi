@@ -101,10 +101,7 @@ def atik_list(request,atikkind):
         #içeriği bitir
 
    
-    
 
-    for i in firstSset:
-        print(i.content)
     
     return render(request,"atiklisttemplate.html",{"data":data,"firstStep":firstSset,"secondStep":secondSset,"thirdStep":thirdSet})
     """ if atikkind == "tibbiatik":
@@ -222,7 +219,7 @@ def download(request,path):
 
 
 def contact1(request):
-    print(request.method)
+    
     
     if request.method == "POST":
         form = contact()
@@ -247,9 +244,16 @@ def contact1(request):
 def map(request,id):
     id_ = str(id)
     from . import map
+    from . import map_
     from . import map_model
     filter = map_model.Map_file.objects.filter(csv_id = id_)
+    #yeniiiiiiiiiiiii
+    
+
     url = ""
+    
+    #print(mapp[0].returnDict()["city"])
+    #print(mapp)
     for row in filter:
         url = row.csv_file.url
     
@@ -259,11 +263,15 @@ def map(request,id):
 
   
     mapTr = map.viv(url)
+    mapp = map_.viv(url)
+    
+    
     
    
-  
-    if(mapTr):
-        return render(request,"map.html",{"data":mapTr[2],"type":mapTr[3],"name":object["csv_mark"]})
+   
+    if(mapp):
+        
+        return render(request,"map.html",{"name":object["csv_mark"],"returnResult":mapp})
     
     return render(request,"map.html",)
     
@@ -272,4 +280,8 @@ def map(request,id):
 
 def sitemap(request):
     return render(request,"sitemap.xml")
+
+#trainings
+def trainings(request):
+    return render(request,"training.html")
  

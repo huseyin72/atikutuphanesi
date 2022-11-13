@@ -18,7 +18,7 @@
      </div>
      <div class="row m-3">
           <h2 class="h2">{{data.mainname}} neden önemlidir?</h2>
-          <p class="fs-5">{{data.whyİmportant}}</p>
+          <p class="fs-5">{{data.whyImportant}}</p>
 
      </div>
      <div class="row m-3">
@@ -125,7 +125,7 @@
                var a = document.createElement('a');
                var link = document.createTextNode(openedd2[index]);
                a.appendChild(link);
-               a.href = hrefs[index];
+                a.href = `https://www.atikkutuphanesi.com/atikkod/${hrefs[index]}`;
                a.className = "theA"
 
 
@@ -187,7 +187,7 @@
 
 
      first.addEventListener("change", (e) => {
-          console.log("geeeel")
+ 
           //let selText = $("#atik option:selected").value;
           second.innerHTML = "";
           contentUl.innerHTML = "";
@@ -221,7 +221,7 @@
                     var a = document.createElement('a');
                     var link = document.createTextNode(datasContent2[index]);
                     a.appendChild(link);
-                    a.href = hrefs[index];
+                    a.href = `https://www.atikkutuphanesi.com/atikkod/${hrefs[index]}`;
                     a.className = "theA"
 
 
@@ -285,7 +285,7 @@
                          var a = document.createElement('a');
                          var link = document.createTextNode(datasContent2[index]);
                          a.appendChild(link);
-                         a.href = hrefs[index];
+                          a.href = `https://www.atikkutuphanesi.com/atikkod/${hrefs[index]}`;
                          a.className = "theA"
 
 

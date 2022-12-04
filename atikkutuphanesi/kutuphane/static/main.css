@@ -5,16 +5,19 @@
     text-decoration:none;
     list-style:none;
     color:rgb(14, 13, 13);
-    font-family: 'Poppins', sans-serif;
+    
    /*  font-family: 'Open Sans', sans-serif; */
     scroll-behavior: smooth;
+    
   /*   overflow-x: hidden; */
    
     
    
   
   }
+  h1, h2, h3, h4, h5, h6 {font-family: 'Merriweather', sans-serif !important;}
   
 body{
   min-width: 100vw;
+  font-family: 'Poppins', sans-serif !important;
 }

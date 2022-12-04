@@ -27,9 +27,9 @@ class MapObject:
 
 
 def viv(name):
-    df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name)
+    df = pd.read_csv("../atikkutuphanesi" + name)
     if "Lisans Konuları" not in df.columns:
-        df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name,skiprows=1)
+        df = pd.read_csv("../atikkutuphanesi" + name,skiprows=1)
     if "Tesisi İli" in df.columns :
         df=df.rename(columns = {'Tesisi İli':'Tesis İli'})
     

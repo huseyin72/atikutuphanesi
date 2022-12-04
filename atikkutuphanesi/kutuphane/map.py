@@ -51,9 +51,9 @@ class MapObject:
 def viv(name):
 
      
-     df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name)
+     df = pd.read_csv("../atikkutuphanesi" + name)
      if "Tesis İli " not in df.columns:
-          df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name)
+          df = pd.read_csv("../atikkutuphanesi" + name)
 
      if "Tesisi İli" in df.columns :
           df=df.rename(columns = {'Tesisi İli':'Tesis İli'})
@@ -117,7 +117,7 @@ def viv(name):
           
      except:
           try:
-               df = df = pd.read_csv("/Users/huseyinozdemir/Desktop/atikutuphanesi/atikkutuphanesi" + name,skiprows=1)
+               df = df = pd.read_csv("../atikkutuphanesi" + name,skiprows=1)
                if "Tesisi İli" in df.columns :
                    df=df.rename(columns = {'Tesisi İli':'Tesis İli'})
                   

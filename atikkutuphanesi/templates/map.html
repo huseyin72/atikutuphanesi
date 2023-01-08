@@ -425,12 +425,18 @@ function svgturkiyeharitasi() {
 mainDictList = [];
 {% for obj in returnResult  %}
   var the_dict = {{obj.returnResult|safe}}
-
+  var myDictionary = {{obj.returnResult2|safe}} ;
  
-  mainDictList.push(the_dict);
+
+  mainDictList.push(myDictionary);
 
 {% endfor %}
 
+
+
+
+
+console.log(mainDictList);
 
   mainDictList.forEach((element,index) => {
     const elementt = document.querySelector('#svg-turkiye-haritasi');
@@ -512,7 +518,7 @@ mainDictList = [];
 
      newText.setAttributeNS(null,"x",x);     
      newText.setAttributeNS(null,"y",y); 
-     newText.setAttributeNS(null,"font-size","25"); 
+     newText.setAttributeNS(null,"font-size","50"); 
      newText.setAttributeNS(null,"fill",colors[key]);
    //id.setAttribute("data-iladi",element +" "+ data_iladi[index])
 
@@ -526,7 +532,7 @@ mainDictList = [];
       
         info.innerHTML = [
           '<div>',
-          `${key}-${value}`,
+          `${value}`,
           '</div>'
         ].join('');
       
@@ -547,6 +553,12 @@ mainDictList = [];
       info.innerHTML = '';
     }
   );
+  newText.addEventListener(
+    'click',
+    function(event){ 
+      window.location.href = `${element.city}`;
+    }
+  )
    
 
    

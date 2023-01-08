@@ -276,7 +276,28 @@ def map(request,id):
     return render(request,"map.html",)
     
 
+#map details
+def mapDetails(request, id, city):
+    from . import map_
+    from . import map_model
+    id_ = str(id)
     
+    filter = map_model.Map_file.objects.filter(csv_id = id_)
+    for row in filter:
+        url = row.csv_file.url
+    
+    mapp = map_.viv(url)
+
+    if(mapp):
+        for i in mapp:
+            if i.getCity() == city:
+                return render(request, "mapDetails.html",{"details":i})
+
+                
+
+
+
+
 
 def sitemap(request):
     return render(request,"sitemap.xml")

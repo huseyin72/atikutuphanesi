@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>{{details.getCity}}</h1>
+    {% for  i in  details.returnResult.subjects %}
+        <h3> {{i}}</h3>
+    {% endfor %}
+{% endblock body %}

@@ -88,7 +88,7 @@ def viv(name):
           #lisans konulari
           for i in df["Lisans Konuları"]:
                lisans_konulari.append(i)
-          print(lisans_konulari)
+         
           for name in tesis_ili:
               
                city_count[name] = city_count.get(name, 0) + 1
